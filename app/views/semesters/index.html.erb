@@ -15,9 +15,10 @@
       <tr>
       <%if semester.current == 1 %>
         <td style="font-weight:bold;font-size:20px; color:green"><%= semester.name %></td>
+        
       <% else %>
         <td><%= semester.name %></td>
-        
+        <td><%= link_to 'Select it as current semester', select_current_sem_path(semester.id) %></td>
       <% end %>
         <td><%= link_to 'Show Courses', specific_course_path(semester.id) %></td>
         <td><%= link_to 'Edit', edit_semester_path(semester) %></td>

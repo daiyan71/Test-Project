@@ -15,8 +15,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :image %><br />
-    <%= f.file_field :image %>
+    <%= f.label :mobile %><br />
+    <%= f.text_field :mobile %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
   </div>
 
   <div class="field">
@@ -30,6 +35,11 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
   </div>
 
   <div class="actions">

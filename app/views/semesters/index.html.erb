@@ -19,7 +19,7 @@
         <td><%= semester.name %></td>
         
       <% end %>
-        <td><%= link_to 'Show Courses', semester %></td>
+        <td><%= link_to 'Show Courses', specific_course_path(semester.id) %></td>
         <td><%= link_to 'Edit', edit_semester_path(semester) %></td>
         <td><%= link_to 'Destroy', semester, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -29,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Semester', new_semester_path %>
+<%= link_to 'Add a Semester', new_semester_path %>

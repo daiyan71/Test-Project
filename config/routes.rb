@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   devise_for :students
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'see_courses', to: "student_home#seeCourses" ,  as: "see_courses"
+  get 'see_enrolled', to: "student_home#seeEnrolledCourses", as: "see_enrolled_courses"
   root to: "student_home#home"
 
 end

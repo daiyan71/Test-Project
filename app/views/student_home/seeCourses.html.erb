@@ -18,10 +18,18 @@
         <td><%= course.courseId %></td>
         <td><%= course.courseName %></td>
         <td><%= course.credit %></td>
-        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if @alreadyEnrolled.include?course.id %>
+            <td>Allready Enrolled</td>
+        <% else %>
+        <td><%= link_to 'Enroll',
+            enrollments_path(:enrollment => { :semester_id => @crnt, :course_id => course.id, :student_id => current_student.id} ),
+            method: :post,
+            data: { confirm: 'Are you sure?' } %>
+            </td>
+        <% end %>
+       
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>

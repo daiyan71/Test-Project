@@ -18,9 +18,9 @@
                       <h4><%=current_student.name%></h4>
                       <p class="text-secondary mb-1">Current Semester</p>
                       <p class="text-muted font-size-sm">Address</p>
-                      <button class="btn btn-primary">See Courses</button>
-                      <%= link_to "See Courses", see_courses_path ,class:"btn btn-outline-primary"%>
-                      <%= link_to "Signout", destroy_student_session_path ,method: :delete, class:"btn btn-outline-primary"%>
+                      <%= link_to "Available Courses", see_courses_path ,class:"btn btn-primary text-white"%>
+                      <%= link_to "Enrolled Courses", see_enrolled_courses_path ,class:"btn btn-primary text-white"%>
+                      <%= link_to "Signout", destroy_student_session_path ,method: :delete, class:"btn btn-danger text-white", style:"margin:5px"%>
                     </div>
                   </div>
                 </div>
@@ -54,7 +54,7 @@
                       <h6 class="mb-0">Mobile</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <%=current_student.mobile%>
+                    +880 <%=current_student.mobile%>
                     </div>
                   </div>
                   <hr>

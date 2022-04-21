@@ -4,7 +4,22 @@ class StudentHomeController < ApplicationController
     end
 
     def seeCourses
-        @crnt = Semester.where(current: 1)
-        @availableCourses = Course.where(semester_id: @crnt[0].id)
+        @crntt = Semester.where(current: 1)
+        @crnt = @crntt[0].id
+        @Enrolled = Enrollment.where(semester_id: @crnt, student_id: current_student.id).select("course_id")
+        @alreadyEnrolled = []
+        @Enrolled.each do |e|
+            @alreadyEnrolled << e.course_id
+        end
+        @availableCourses = Course.where(semester_id: @crnt)
     end
+
+    def seeEnrolledCourses
+        @crntt = Semester.where(current: 1)
+        @crnt = @crntt[0].id
+        
+        @courses = Enrollment.where(semester_id: @crnt, student_id: current_student.id)
+    end
+
+
 end

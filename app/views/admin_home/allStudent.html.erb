@@ -20,6 +20,7 @@
         <td><%= s.name %></td>
         <td><%= s.email %></td>
         <td>0<%= s.mobile %></td>
+        <td><%= link_to "Update Marks", update_mark_path(s.id) %></td>
       </tr>
     <% end %>
   </tbody>

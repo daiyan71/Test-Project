@@ -1,6 +1,7 @@
 class StudentHomeController < ApplicationController
     before_action :authenticate_student!
-    def home 
+    def home
+        @crntt = Semester.find_by(current: 1)
     end
 
     def seeCourses

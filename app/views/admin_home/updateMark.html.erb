@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Enrollments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Semester</th>
+      <th>Course Id</th>
+      <th>Course Name</th>
+      <th>Credit</th>
+      <th>Marks</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @courses.each do |enrollment| %>
+      <tr>
+        <td><%= enrollment.semester.name %></td>
+        <td><%= enrollment.course.courseId %></td>
+        <td><%= enrollment.course.courseName %></td>
+        <td><%= enrollment.course.credit %></td>
+
+        <td>
+            <% @enrollment = Enrollment.find(enrollment.id) %>
+            <%= form_with(model: @enrollment, local: true) do |form| %>
+                <% form.text_field :semester_id, value: @crnt%>
+                <% form.text_field :couese_id , value: enrollment.course.id%>
+                <% form.text_field :student_id , value: @crntStudentId%>
+
+                <%= hidden_field_tag(:studentId, @crntStudentId) %>
+                <%= form.text_field :marks %>
+                <%= form.submit "Update Mark"%>
+                
+            <% end %>
+        </td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+  
+</table>
+<p> <%=link_to "Publish Result"%> </p>
+<br>
+

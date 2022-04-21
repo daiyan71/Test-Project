@@ -14,4 +14,12 @@ class AdminHomeController < ApplicationController
     curnt.save!
     redirect_to semesters_url
   end
+
+  def updateMark
+    
+    @crntt = Semester.where(current: 1)
+    @crnt = @crntt[0].id
+    @crntStudentId = params[:id]
+    @courses = Enrollment.where(semester_id: @crnt, student_id: @crntStudentId)
+  end
 end

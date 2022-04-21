@@ -16,7 +16,7 @@
                   <%= image_tag current_student.image.url , class:"rounded-circle" , style:"width:150px" %> 
                     <div class="mt-3">
                       <h4><%=current_student.name%></h4>
-                      <p class="text-secondary mb-1">Current Semester</p>
+                      <p class="text-secondary mb-1">Current Semester : <%=@crntt.name %></p>
                       <p class="text-muted font-size-sm">Address</p>
                       <%= link_to "Available Courses", see_courses_path ,class:"btn btn-primary text-white"%>
                       <%= link_to "Enrolled Courses", see_enrolled_courses_path ,class:"btn btn-primary text-white"%>

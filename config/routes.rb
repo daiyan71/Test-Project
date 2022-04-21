@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :semesters
   get 'admin', to: "admin_home#home"
   get 'update_mark/:id', to: "admin_home#updateMark" , as: "update_mark"
+  get 'publish_result', to: "admin_home#publishResult" , as: "publish_result"
+
   get 'specificCourses/:id', to: "courses#indexSpecific" ,  as: "specific_course"
   get 'newSpecificCourse/:id', to: "courses#newSpecific" ,  as: "new_specific_course"
   get 'selectCurrentSemester/:id', to: "admin_home#selectCurrentSemester" ,  as: "select_current_sem"

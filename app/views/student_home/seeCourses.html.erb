@@ -13,21 +13,28 @@
   </thead>
 
   <tbody>
+  <% @pub = false %>
+  <% if !(@result == nil || @result.gpa == nil) %>
+    <% @pub = true %>
+    <td>Cant enroll,result has been published</td>
+  <% end %>
+    
     <% @availableCourses.each do |course| %>
       <tr>
         <td><%= course.courseId %></td>
         <td><%= course.courseName %></td>
         <td><%= course.credit %></td>
-        <% if @alreadyEnrolled.include?course.id %>
-            <td>Allready Enrolled</td>
-        <% else %>
-        <td><%= link_to 'Enroll',
-            enrollments_path(:enrollment => { :semester_id => @crnt, :course_id => course.id, :student_id => current_student.id} ),
-            method: :post,
-            data: { confirm: 'Are you sure?' } %>
-            </td>
-        <% end %>
-       
+        <%if @pub == false %>
+            <% if @alreadyEnrolled.include?course.id %>
+                <td>Allready Enrolled</td>
+            <% else %>
+            <td><%= link_to 'Enroll',
+                enrollments_path(:enrollment => { :semester_id => @crnt, :course_id => course.id, :student_id => current_student.id} ),
+                method: :post,
+                data: { confirm: 'Are you sure?' } %>
+                </td>
+            <% end %>
+       <% end %>
       </tr>
     <% end %>
   </tbody>

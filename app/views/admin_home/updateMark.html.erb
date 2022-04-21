@@ -23,17 +23,24 @@
         <td><%= enrollment.course.credit %></td>
 
         <td>
-            <% @enrollment = Enrollment.find(enrollment.id) %>
-            <%= form_with(model: @enrollment, local: true) do |form| %>
+            <% if @result == nil  || @result.gpa ==nil %>
+                
+                <% @enrollment = Enrollment.find(enrollment.id) %>
+                <%= form_with(model: @enrollment, local: true) do |form| %>
                 <% form.text_field :semester_id, value: @crnt%>
                 <% form.text_field :couese_id , value: enrollment.course.id%>
                 <% form.text_field :student_id , value: @crntStudentId%>
-
+                
                 <%= hidden_field_tag(:studentId, @crntStudentId) %>
                 <%= form.text_field :marks %>
                 <%= form.submit "Update Mark"%>
                 
+                <% end %>
+            <%else%>
+                <td><%= enrollment.marks %></td>
             <% end %>
+
+            
         </td>
         
       </tr>
@@ -41,6 +48,10 @@
   </tbody>
   
 </table>
-<p> <%=link_to "Publish Result"%> </p>
+<% if @result == nil  || @result.gpa ==nil %>
+    <p> <%=link_to "Publish Result" , publish_result_path(:result => { :semester_id => @crnt, :student_id => @crntStudentId})%> </p>
+<%else%>
+    <p> Result already published </p>
+<% end %>
 <br>
 

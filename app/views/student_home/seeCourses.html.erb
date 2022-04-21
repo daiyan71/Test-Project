@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Courses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Courseid</th>
+      <th>Coursename</th>
+      <th>Credit</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @availableCourses.each do |course| %>
+      <tr>
+        <td><%= course.courseId %></td>
+        <td><%= course.courseName %></td>
+        <td><%= course.credit %></td>
+        <% if @alreadyEnrolled.include?course.id %>
+            <td>Allready Enrolled</td>
+        <% else %>
+        <td><%= link_to 'Enroll',
+            enrollments_path(:enrollment => { :semester_id => @crnt, :course_id => course.id, :student_id => current_student.id} ),
+            method: :post,
+            data: { confirm: 'Are you sure?' } %>
+            </td>
+        <% end %>
+       
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>

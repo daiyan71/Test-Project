@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  semester: one
+  student: one
+  course: one
+  marks: 9.99
+
+two:
+  semester: two
+  student: two
+  course: two
+  marks: 9.99

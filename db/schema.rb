@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_20_081646) do
+ActiveRecord::Schema.define(version: 2022_04_21_043757) do
 
   create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "courseId"
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(version: 2022_04_20_081646) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["semester_id"], name: "index_courses_on_semester_id"
+  end
+
+  create_table "enrollments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "semester_id", null: false
+    t.bigint "student_id", null: false
+    t.bigint "course_id", null: false
+    t.decimal "marks", precision: 10
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_enrollments_on_course_id"
+    t.index ["semester_id"], name: "index_enrollments_on_semester_id"
+    t.index ["student_id"], name: "index_enrollments_on_student_id"
   end
 
   create_table "semesters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -46,4 +58,7 @@ ActiveRecord::Schema.define(version: 2022_04_20_081646) do
   end
 
   add_foreign_key "courses", "semesters"
+  add_foreign_key "enrollments", "courses"
+  add_foreign_key "enrollments", "semesters"
+  add_foreign_key "enrollments", "students"
 end

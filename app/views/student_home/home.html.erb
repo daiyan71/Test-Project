@@ -19,6 +19,7 @@
                       <p class="text-secondary mb-1">Current Semester</p>
                       <p class="text-muted font-size-sm">Address</p>
                       <button class="btn btn-primary">See Courses</button>
+                      <%= link_to "See Courses", see_courses_path ,class:"btn btn-outline-primary"%>
                       <%= link_to "Signout", destroy_student_session_path ,method: :delete, class:"btn btn-outline-primary"%>
                     </div>
                   </div>

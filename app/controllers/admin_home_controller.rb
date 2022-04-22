@@ -70,6 +70,8 @@ class AdminHomeController < ApplicationController
       @result = Result.new(semester_id: smid, student_id: stid, gpa: gpa)
       @result.save!
       redirect_to update_mark_url(stid), notice: "Successfully Published." 
+      #added a comment
+      #2nd line
     end
 
     # @result = Result.new(result_params)

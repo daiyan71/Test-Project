@@ -14,8 +14,9 @@ class StudentHomeController < ApplicationController
         @Enrolled.each do |e|
             @alreadyEnrolled << e.course_id
         end
-        @availableCourses = Course.where(semester_id: @crnt)
-
+        #@availableCourses = Course.where(semester_id: @crnt, "courseId LIKE ?","%"+params[:search]+"%")
+        params[:search]="" if params[:search]==nil
+        @availableCourses = Course.where("semester_id = ? and (courseId LIKE ? or courseName LIKE ?)",@crnt,"%"+params[:search]+"%","%"+params[:search]+"%")
         @result = Result.find_by(semester_id: @crnt, student_id: current_student.id)
     end
 

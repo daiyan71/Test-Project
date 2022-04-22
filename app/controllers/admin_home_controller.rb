@@ -69,7 +69,10 @@ class AdminHomeController < ApplicationController
       gpa = gpa/cnt
       @result = Result.new(semester_id: smid, student_id: stid, gpa: gpa)
       @result.save!
+      MailMailer.with(result: @result).result_published.deliver_later
       redirect_to update_mark_url(stid), notice: "Successfully Published." 
+      #added a comment
+      #2nd line
     end
 
     # @result = Result.new(result_params)

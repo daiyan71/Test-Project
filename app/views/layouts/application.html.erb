@@ -16,8 +16,18 @@
   
   <body>
     <%= render 'shared/navbar' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="container-sm" >
+        <div class="row">
+            <div class="col-5">
+            </div>
+            <div class="col-3 style="padding-top:100px">
+                <p class="notice"><%= notice %></p>
+                <p class="alert"><%= alert %></p>
+            </div>
+            <div class="col-4">
+            </div>
+        </div>
+      </div>
     <%= yield %>
   </body>
 </html>

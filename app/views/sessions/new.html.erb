@@ -1,20 +1,27 @@
-<section>
-<% if flash[:alert] %>
-    <aside class="notice"><%= flash[:alert] %></aside>
-<% end %>
-<%= form_tag do %>
-    <h2>Please Log In</h2>
 
-    <div class="field">
-        <%= label_tag :email, 'Email:' %>
-        <%= text_field_tag :email, params[:email] %>
+<h1 class="text-center" style="margin-top: 40px; color: #black; text-shadow: 2px 2px 2px #333333; font-weight: bold;">Sign In</h1>
+
+	<div class="container-sm" >
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6" id="contactForm">
+            <%= form_tag do %>
+            
+                <div class="field">
+                    <%= label_tag :email, 'Email:' %>
+                    <%= text_field_tag :email, params[:email], style:"margin-top: 20px;"%>
+                </div>
+                <div class="field">
+                    <%= label_tag :password, 'Password:' %>
+                    <%= password_field_tag :password, params[:password] , style:"margin-top: 20px;"%>
+                </div>
+                    <div class="actions">
+                    <%= submit_tag "Login" %>
+                </div>
+            <% end %>
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
     </div>
-    <div class="field">
-        <%= label_tag :password, 'Password:' %>
-        <%= password_field_tag :password, params[:password] %>
-    </div>
-        <div class="actions">
-        <%= submit_tag "Login" %>
-    </div>
-<% end %>
-</section>

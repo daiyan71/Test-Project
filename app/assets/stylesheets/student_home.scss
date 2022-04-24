@@ -54,3 +54,15 @@ body{
 .shadow-none {
     box-shadow: none!important;
 }
+
+#table{
+	margin-top: 200px;
+}
+th{
+	background-color:rgb(160, 201, 248); 
+		color:rgb(5, 5, 5);
+}
+tr:nth-child(even){
+	background-color:rgb(160, 197, 241); 
+	color: rgb(2, 2, 2);
+}

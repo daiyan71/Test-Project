@@ -1,33 +1,44 @@
-<p id="notice"><%= notice %></p>
+<div class = "container">
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8" id="contactForm">
+      <p id="notice"><%= notice %></p>
 
-<h1>Semesters</h1>
+      
+      <h1>Semesters</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @semesters.each do |semester| %>
-      <tr>
-      <%if semester.current == 1 %>
-        <td style="font-weight:bold;font-size:20px; color:green"><%= semester.name %></td>
-        
-      <% else %>
-        <td><%= semester.name %></td>
-        <td><%= link_to 'Select it as current semester', select_current_sem_path(semester.id) %></td>
-      <% end %>
-        <td><%= link_to 'Show Courses', specific_course_path(semester.id) %></td>
-        <td><%= link_to 'Edit', edit_semester_path(semester) %></td>
-        <td><%= link_to 'Destroy', semester, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+      <div class="table-responsive">
+      <table class="table">
+        <tr>
+          <th width="30%">Name</th>
+          <th width="40%"></th>
+          <th width="20%"></th>
+          <th width="10%"></th>
+        </tr>
+        <% @semesters.each do |semester| %>
+          <tr>
+          <%if semester.current == 1 %>
+            <td style="font-weight:bold; color:green"><%= semester.name %></td>
+            <td style="font-weight:bold; color:green">This Is Current Semester</td>
+          <% else %>
+            <td><%= semester.name %></td>
+            <td><%= link_to 'Make current semester', select_current_sem_path(semester.id),class:"btn btn-light" %></td>
+          <% end %>
+            <td><%= link_to 'Courses', specific_course_path(semester.id),class:"btn btn-secondary text-white" %></td>
+            <td><%= link_to 'Edit', edit_semester_path(semester),class:"btn btn-info text-white" %></td>
+            <td><%= link_to 'Destroy', semester, method: :delete,class:"btn btn-danger text-white", data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+    </table>
 
-<%= link_to 'Add a Semester', new_semester_path %>
+  </table>
+
+      <%= link_to 'Add a Semester', new_semester_path , class:"btn btn-success text-white"%>
+      </div>
+      <div class="col-md-2">
+      </div>
+  </div>
+</div>

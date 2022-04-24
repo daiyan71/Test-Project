@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
+  resources :admins
   resources :enrollments
   resources :courses
   resources :semesters
-  get 'admin', to: "admin_home#home"
+  get 'admin', to: "admin_home#home" , as: "admin_home"
   get 'update_mark/:id', to: "admin_home#updateMark" , as: "update_mark"
   get 'publish_result', to: "admin_home#publishResult" , as: "publish_result"
 

@@ -1,4 +1,6 @@
 class EnrollmentsController < ApplicationController
+  before_action :authorize
+  skip_before_action :authorize , only: %i[ create show destroy ]
   before_action :set_enrollment, only: %i[ show edit update destroy ]
 
   # GET /enrollments or /enrollments.json

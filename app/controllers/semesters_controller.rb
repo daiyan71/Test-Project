@@ -1,4 +1,5 @@
 class SemestersController < ApplicationController
+  before_action :authorize
   before_action :set_semester, only: %i[ show edit update destroy ]
 
   # GET /semesters or /semesters.json

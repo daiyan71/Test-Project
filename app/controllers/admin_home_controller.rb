@@ -1,4 +1,5 @@
 class AdminHomeController < ApplicationController
+  before_action :authorize
   def home
     @current = Semester.where(current: 1)
     @currentSemester = @current[0]

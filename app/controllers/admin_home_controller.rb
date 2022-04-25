@@ -69,7 +69,6 @@ class AdminHomeController < ApplicationController
        redirect_to update_mark_url(stid), alert: "Unable to publish the result. Update all the marks first" 
     else
       gpa = gpa/cnt
-      #gpa=3.25
       @result = Result.new(semester_id: smid, student_id: stid, gpa: gpa)
       @result.save!
       MailMailer.with(result: @result).result_published.deliver_later

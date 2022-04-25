@@ -1,6 +1,6 @@
 <nav class=" navbar navbar-expand-lg bg-dark navbar-dark fixed-top" >
 				<div class = "container-fluid">
-					<a href="" class="navbar-brand text-warning font-weight-bold">BUYBIKE.COM</a>
+					<a href="/admin" class="navbar-brand text-warning font-weight-bold">Home</a>
 					
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsenavbar"> 
 						<span class="navbar-toggler-icon">
@@ -10,20 +10,24 @@
 					<div class="collapse navbar-collapse text-center" id="collapsenavbar">
 						<ul class="navbar-nav ml-auto text-white">
 							<li class="nav-item"> 
-              <%=link_to "Semester" , semesters_path ,class:"nav-link text-white"%>
+              					<%=link_to "Semester" , semesters_path ,class:"nav-link text-white"%>
 							</li>
 							<li class="nav-item"> 
-              <%=link_to "Courses" , courses_path ,class:"nav-link text-white"%>
+              					<%=link_to "Courses" , courses_path ,class:"nav-link text-white"%>
 							</li>
 							<li class="nav-item"> 
-              <%=link_to "Students" , students_path ,class:"nav-link text-white"%>
+             					 <%=link_to "Students" , students_path ,class:"nav-link text-white"%>
 							</li>
 							<li class="nav-item"> 
-              <%=link_to "Manage Admins" , admins_path,class:"nav-link text-white" %>
+              					<%=link_to "Manage Admins" , admins_path,class:"nav-link text-white" %>
 							</li>
+							
 						</ul>
-              <%= link_to "Signout", logout_path ,method: :delete, class:"btn btn-danger text-white", style:"margin:5px"%>
+							
 					</div>
+					<li class="nav-item d-flex"> 
+						<%= link_to "Signout", logout_path ,method: :delete, class:"btn btn-danger text-white d-flex", style:"margin:5px"%>
+					</li>
 				</div>
 			
 </nav>

@@ -1,6 +1,16 @@
-<h1>Editing Course</h1>
+<%= render 'shared/navbar_admin' %>
+<div class = "container">
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6" id="contactForm">
+        <h1>Editing Course</h1>
 
-<%= render 'form', course: @course %>
+        <%= render 'form', course: @course %>
 
-<%= link_to 'Show', @course %> |
-<%= link_to 'Back', courses_path %>
+        <%= link_to 'Back', courses_path %>
+        </div>
+        <div class="col-md-3">
+    </div>
+</div>
+</div>

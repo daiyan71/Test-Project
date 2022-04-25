@@ -1,18 +1,62 @@
+<%= render 'shared/navbar_admin' %>
 <div class = "container">
-  <div class="row">
-    <div class="col-md-2">
+  <div class="row ">
+    <div class="col-sm-2">
     </div>
-    <div class="col-md-8" id="contactForm">
-        <h1>Welcome to Admin Panel</h1>
-        <h3>Current semester is <%= @currentSemester.name %></h3>
-        <%=link_to "Show All semester" , semesters_path %>
-        <%=link_to "Show All courses" , courses_path %>
-        <%=link_to "Show All students" , students_path %>
-        <%=link_to "Manage Admins" , admins_path %>
-        <%= link_to "Signout", logout_path ,method: :delete, class:"btn btn-danger text-white", style:"margin:5px"%>
-        </div>
-    <div class="col-md-2">
+    <div class="col-sm-8" id="contactForm" style="margin:10px">
+        <h1 class="text-center">Welcome to Admin Panel</h1>
+        <h3 class="text-center">Current semester is: <%= @currentSemester.name %></h3>
+    </div>
+    <div class="col-sm-2">
     </div>
   </div>
+        <div class="row mb-4">
+          <div class=" col-sm-2">
+          </div>
+          <div class="col-sm-4 mb-2">
+            <div class=" card h-100">
+              <div class="card-body">
+                <h5 class="card-title">Semesters</h5>
+                <p class="card-text">Manage semesters. Add remove or update. Change current semester from here.</p>
+                <%=link_to "Go" , semesters_path,class:"btn btn-primary text-white" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 mb-2">
+            <div class="card h-100 w-100">
+              <div class="card-body">
+                <h5 class="card-title">Courses</h5>
+                <p class="card-text">Manage courses. Add remove or update.</p>
+                <%=link_to "Go" , courses_path,class:"btn btn-primary text-white" %>
+              </div>
+            </div>
+          </div>
+          <div class=" col-sm-2">
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class=" col-sm-2 mb-2">
+          </div>
+          <div class="col-sm-4 mb-2">
+            <div class=" card h-100 ">
+              <div class="card-body">
+                <h5 class="card-title">Students</h5>
+                <p class="card-text">Show all students. Update their marks and publish result.</p>
+                <%=link_to "Go" , students_path,class:"btn btn-primary text-white" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card h-100 ">
+              <div class="card-body">
+                <h5 class="card-title">Admins</h5>
+                <p class="card-text">Manage admins. Add remove or update.</p>
+                <%=link_to "Go" , admins_path,class:"btn btn-primary text-white" %>
+              </div>
+            </div>
+          </div>
+          <div class=" col-sm-2">
+          </div>
+        </div>
 </div>
             

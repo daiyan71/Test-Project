@@ -20,6 +20,7 @@ class AdminHomeController < ApplicationController
     
     @crntt = Semester.where(current: 1)
     @crnt = @crntt[0].id
+    @crntStudent = Student.find_by(id: params[:id])
     @crntStudentId = params[:id]
     @result = Result.find_by(semester_id: @crnt, student_id: @crntStudentId)
     @courses = Enrollment.where(semester_id: @crnt, student_id: @crntStudentId)
@@ -30,8 +31,8 @@ class AdminHomeController < ApplicationController
     smid= params[:result][:semester_id]
     @courses = Enrollment.where(semester_id: smid, student_id: stid)
 
-    gpa = 0
-    grade = 0
+    gpa = 0.0
+    grade = 0.0
     cnt = 0*1.0
     failed = false
     @courses.each do |c|
@@ -61,13 +62,14 @@ class AdminHomeController < ApplicationController
         grade = 4.0
       end
 
-      gpa = gpa + (grade*c.course.credit)
+      gpa = gpa + (grade*c.course.credit)*1.0
     end
 
     if failed == true
-       redirect_to update_mark_url(stid), notice: "Unable to publish. Update all the marks" 
+       redirect_to update_mark_url(stid), alert: "Unable to publish the result. Update all the marks first" 
     else
       gpa = gpa/cnt
+      #gpa=3.25
       @result = Result.new(semester_id: smid, student_id: stid, gpa: gpa)
       @result.save!
       MailMailer.with(result: @result).result_published.deliver_later

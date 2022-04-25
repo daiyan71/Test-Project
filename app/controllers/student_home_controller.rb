@@ -8,6 +8,7 @@ class StudentHomeController < ApplicationController
 
     def seeCourses
         @crntt = Semester.where(current: 1)
+        @crntSemester = @crntt[0]
         @crnt = @crntt[0].id
         @Enrolled = Enrollment.where(semester_id: @crnt, student_id: current_student.id).select("course_id")
         @alreadyEnrolled = []

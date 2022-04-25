@@ -15,19 +15,14 @@
   </head>
   
   <body>
-  <%= render 'shared/navbar' %>
-    <div class="container-sm" >
-        <div class="row">
-            <div class="col-5">
-            </div>
-            <div class="col-3 style="padding-top:100px">
-                <p class="notice"><%= notice %></p>
-                <p class="alert"><%= alert %></p>
-            </div>
-            <div class="col-4">
-            </div>
-        </div>
-      </div>
-    <%= yield %>
+    </br>
+    </br>
+    </br>
+    <% if notice || alert %>
+      <h6 class="text-black text-center bg-info"><%= notice %></h6>
+      <h6 class="text-black text-center bg-warning"><%= alert %></h6>
+    <% end %>
+      <%= yield %>
+    
   </body>
 </html>

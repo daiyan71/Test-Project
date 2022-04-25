@@ -1,0 +1,27 @@
+<nav class=" navbar navbar-expand-lg bg-dark navbar-dark fixed-top" >
+				<div class = "container-fluid">
+					<a href="/" class="navbar-brand text-warning font-weight-bold">Profile</a>
+					
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsenavbar"> 
+						<span class="navbar-toggler-icon">
+							 
+						</span>
+					</button>
+					<div class="collapse navbar-collapse text-center" id="collapsenavbar">
+						<ul class="navbar-nav ml-auto text-white">
+							<li class="nav-item"> 
+              					<%=link_to "Available Courses", see_courses_path  ,class:"nav-link text-white"%>
+							</li>
+							<li class="nav-item"> 
+                            <%= link_to "Enrolled Courses", see_enrolled_courses_path ,class:"nav-link text-white"%>
+							</li>
+							
+						</ul>
+							
+					</div>
+					<li class="nav-item d-flex"> 
+						<%= link_to "Signout", destroy_student_session_path ,method: :delete, class:"btn btn-danger text-white d-flex", style:"margin:5px"%>
+					</li>
+				</div>
+			
+</nav>

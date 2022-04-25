@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_24_035806) do
+ActiveRecord::Schema.define(version: 2022_04_25_073703) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email"
@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(version: 2022_04_24_035806) do
   create_table "results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "semester_id", null: false
     t.bigint "student_id", null: false
-    t.decimal "gpa", precision: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "gpa", precision: 5, scale: 3
     t.index ["semester_id"], name: "index_results_on_semester_id"
     t.index ["student_id"], name: "index_results_on_student_id"
   end

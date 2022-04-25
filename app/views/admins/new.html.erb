@@ -1,15 +1,17 @@
+<%= render 'shared/navbar_admin' %>
+
 <div class = "container">
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
     </div>
-    <div class="col-md-8">
+    <div class="col-md-6" id="contactForm">
         <h1>New Admin</h1>
         
         <%= render 'form', admin: @admin %>
         
         <%= link_to 'Back', admins_path %>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-3">
     </div>
   </div>
 </div>

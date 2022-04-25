@@ -1,6 +1,16 @@
-<h1>Editing Semester</h1>
+<%= render 'shared/navbar_admin' %>
 
-<%= render 'form', semester: @semester %>
+<div class = "container">
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6" id="contactForm">
+            <h1>Editing Semester</h1>
 
-
-<%= link_to 'Back', semesters_path %>
+            <%= render 'form', semester: @semester %>
+            <%= link_to 'Back', semesters_path %>
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+</div> 

@@ -4,75 +4,77 @@
     <div class="col-sm-2">
     </div>
     <div class="col-sm-8" id="contactForm" style="margin:10px">
-        <h3 class="text-center">Publish Result</h3>
-        <h6 class="">ID: <%= @crntStudent.id %></h6>
-        <h6 class="">Name: <%= @crntStudent.name %></h6>
-        <h6 class="">Email: <%= @crntStudent.email %></h6>
+      <h3 class="text-center">Publish Result</h3>
+      <h6 class="">ID: <%= @crntStudent.id %></h6>
+      <h6 class="">Name: <%= @crntStudent.name %></h6>
+      <h6 class="">Email: <%= @crntStudent.email %></h6>
 
-          <% if @result == nil  || @result.gpa ==nil %>
-              <h6> <%=link_to "Publish Result" , publish_result_path(:result => { :semester_id => @crnt, :student_id => @crntStudentId}), class:"btn btn-dark btn-sm text-white",
-              style:" margin-right:15px", data: { confirm: 'Publish the result of '+ @crntStudent.name + '?'}%> </h6>
-          <%else%>
-              <h6> <%=link_to "Publish Result" , publish_result_path(:result => { :semester_id => @crnt, :student_id => @crntStudentId}), class:"btn btn-dark btn-sm text-white disabled",
-              style:" margin-right:15px"%> </h6>
-              <h6> Result already published! Result is GPA: <%=@result.gpa%> </h6>
-          <% end %>
+      <% if @result == nil || @result.gpa == nil %>
+        <h6> <%= link_to "Publish Result", publish_result_path(:result => { :semester_id => @crnt, :student_id => @crntStudentId }), class: "btn btn-dark btn-sm text-white",
+                         style: " margin-right:15px", data: { confirm: 'Publish the result of ' + @crntStudent.name + '?' } %> </h6>
+      <% else %>
+        <h6> <%= link_to "Publish Result", publish_result_path(:result => { :semester_id => @crnt, :student_id => @crntStudentId }), class: "btn btn-dark btn-sm text-white disabled",
+                         style: " margin-right:15px" %> </h6>
+        <h6> Result already published! Result is GPA: <%= @result.gpa %> </h6>
+      <% end %>
     </div>
     <div class="col-sm-2">
     </div>
   </div>
-<div class="row">
-<div class="col-md-2">
+  <div class="row">
+    <div class="col-md-2">
 
-</div>
+    </div>
 
-  <div class="table-responsive col-md-8">
+    <div class="table-responsive col-md-8">
 
-  <table class="table">
-    <tr><th colspan="6"><h3 class="text-center">Update Marks</h3></th></tr>
-    <tr >
-      <th width="20%">Semester</th>
-      <th width="20%">Course Id</th>
-      <th width="20%">Course Name</th>
-      <th width="5%">Credit</th>
-      <th width="35%">Marks</th>
-    </tr>
-    <% @courses.each do |enrollment| %>
-      <tr>
-        <td><%= enrollment.semester.name %></td>
-        <td><%= enrollment.course.courseId %></td>
-        <td><%= enrollment.course.courseName %></td>
-        <td><%= enrollment.course.credit %></td>
+      <table class="table">
+        <tr>
+          <th colspan="6"><h3 class="text-center">Update Marks</h3></th>
+        </tr>
+        <tr>
+          <th width="20%">Semester</th>
+          <th width="20%">Course Id</th>
+          <th width="20%">Course Name</th>
+          <th width="5%">Credit</th>
+          <th width="35%">Marks</th>
+        </tr>
+        <% @courses.each do |enrollment| %>
+          <tr>
+            <td><%= enrollment.semester.name %></td>
+            <td><%= enrollment.course.courseId %></td>
+            <td><%= enrollment.course.courseName %></td>
+            <td><%= enrollment.course.credit %></td>
 
-            <% if @result == nil  || @result.gpa ==nil %>
-                
-                <% @enrollment = Enrollment.find(enrollment.id) %>
-                <%= form_with(model: @enrollment, local: true) do |form| %>
-                <% form.text_field :semester_id, value: @crnt%>
-                <% form.text_field :couese_id , value: enrollment.course.id%>
-                <% form.text_field :student_id , value: @crntStudentId%>
-                
+            <% if @result == nil || @result.gpa == nil %>
+
+              <% @enrollment = Enrollment.find(enrollment.id) %>
+              <%= form_with(model: @enrollment, local: true) do |form| %>
+                <% form.text_field :semester_id, value: @crnt %>
+                <% form.text_field :couese_id, value: enrollment.course.id %>
+                <% form.text_field :student_id, value: @crntStudentId %>
+
                 <%= hidden_field_tag(:studentId, @crntStudentId) %>
                 <td class="text-center d-flex justify-content-end">
-                <%= form.text_field :marks %>
-                <%= form.submit "Update Mark", class:"btn btn-success btn-sm text-white",
-                style:"margin-left:15px; margin-right:15px"%>
+                  <%= form.text_field :marks %>
+                  <%= form.submit "Update Mark", class: "btn btn-success btn-sm text-white",
+                                  style: "margin-left:15px; margin-right:15px" %>
                 </td>
-                <% end %>
-            <%else%>
-                <td> <%= enrollment.marks %> </td>
+              <% end %>
+            <% else %>
+              <td> <%= enrollment.marks %> </td>
             <% end %>
-        
-      </tr>
-    <% end %>
- </table>
 
-  </table>
-</div>
+          </tr>
+        <% end %>
+      </table>
 
+      </table>
+    </div>
 
-</div>
-
-</div>
 
   </div>
+
+</div>
+
+</div>

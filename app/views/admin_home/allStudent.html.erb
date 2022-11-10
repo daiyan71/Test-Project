@@ -1,5 +1,5 @@
 <%= render 'shared/navbar_admin' %>
-<div class = "container">
+<div class="container">
   <div class="row">
     <div class="col-md-2">
     </div>
@@ -7,10 +7,8 @@
       <h3 class="text-center">ALL THE STUDENTS</h3>
 
 
-
-
       <div class="table-responsive">
-      <table class="table">
+        <table class="table">
           <tr>
             <th class="text-center" width="10%">Studentid</th>
             <th class="text-center" width="25%">Student Name</th>
@@ -24,16 +22,17 @@
               <td class="text-center"><%= s.name %></td>
               <td class="text-center"><%= s.email %></td>
               <td class="text-center">0<%= s.mobile %></td>
-              <td class="text-center"><%= link_to "Update Marks", update_mark_path(s.id),class:"btn btn-success text-white" %></td>
+              <td class="text-center"><%= link_to "Update Marks", update_mark_path(s.id), class: "btn btn-success text-white" %></td>
             </tr>
           <% end %>
-      </table>
+        </table>
 
-      </table>
+        </table>
 
       </div>
-      <div class="col-md-2">
-      </div>
+    </div>
+    <div class="col-md-2">
+    </div>
   </div>
 
 </div>
